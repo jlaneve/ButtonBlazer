@@ -2,19 +2,24 @@ local composer = require( "composer" )
 local scene = composer.newScene()
 local gameNetwork = require "gameNetwork" 
 
-local function loadLocalPlayerCallback( event )
-  playerName = event.data.alias
-end
-local function gameNetworkLoginCallback( event )
-  gameNetwork.request( "loadLocalPlayer", { listener=loadLocalPlayerCallback } )
-  return true
-end
-local function gpgsInitCallback( event )
-  gameNetwork.request( "login", { userInitiated=true, listener=gameNetworkLoginCallback } )
+
+local loggedIntoGC = false
+
+local function initCallback( event )
+    if ( event.type == "showSignIn" ) then
+      print("sign in working")
+    elseif ( event.data ) then
+        loggedIntoGC = true
+    end
 end
 
-gameNetwork.init("google", gpgsInitCallback)
-
+local function onSystemEvent( event ) 
+    if ( event.type == "applicationStart" ) then
+        gameNetwork.init( "gamecenter", initCallback )
+        return true
+    end
+end
+Runtime:addEventListener( "system", onSystemEvent )
 
 local widget = require("widget")
 startSound = audio.loadSound( "gameStart.ogg" )
@@ -35,11 +40,7 @@ end
 
 local function showLeaderboards( event )
   if ("event.phase == ended") then
-    if gameNetwork.request("isConnected") then
      gameNetwork.show("leaderboards")
-    else
-      gameNetwork.request( "login", { userInitiated=true, listener=gameNetworkLoginCallback } )
-    end
   end
 end
 
@@ -109,6 +110,12 @@ function scene:create( event )
 
     Runtime:addEventListener( "system", systemEvents )
    
+    local titleText = display.newText( "Button Blazer", 0, 0, native.systemFontBold, 45 ) --45
+    titleText:setFillColor( 0,0,0 )
+    titleText.x = display.contentCenterX
+    titleText.y = display.contentCenterY - 225
+    sceneGroup:insert (titleText) 
+
 end
 
 

@@ -2,7 +2,7 @@ local composer = require( "composer" )
 local scene = composer.newScene()
 local gameNetwork = require "gameNetwork"
 local widget = require( "widget" )
-gameNetwork.init("google")
+gameNetwork.init("gamecenter")
 --
 -- My "global" like data table, see http://coronalabs.com/blog/2013/05/28/tutorial-goodbye-globals/
 --
@@ -32,7 +32,7 @@ file = nil
 
 gameNetwork.request( "setHighScore",
     {
-        localPlayerScore = { category="CgkIxO2WsIoUEAIQBg", value=scoreSaved },
+        localPlayerScore = { category="Butt0nBl2z3r_HighScores", value=scoreSaved },
     }
 )
 
@@ -41,19 +41,22 @@ function achievementChecker( event )
     print( "achievement set" )
 end
 if scoreSaved >= 5 then
-    gameNetwork.request( "unlockAchievement",{achievement ={identifier = "CgkIxO2WsIoUEAIQAQ"},listener = achievementChecker})
+    gameNetwork.request( "unlockAchievement",{achievement ={identifier = "high5"},listener = achievementChecker})
 end
 if scoreSaved >= 10 then
-    gameNetwork.request( "unlockAchievement",{achievement ={identifier = "CgkIxO2WsIoUEAIQAg"},listener = achievementChecker})
+    gameNetwork.request( "unlockAchievement",{achievement ={identifier = "high10"},listener = achievementChecker})
 end
 if scoreSaved >= 20 then
-    gameNetwork.request( "unlockAchievement",{achievement ={identifier = "CgkIxO2WsIoUEAIQAw"},listener = achievementChecker})
+    gameNetwork.request( "unlockAchievement",{achievement ={identifier = "high20"},listener = achievementChecker})
 end
 if scoreSaved >= 30 then
-    gameNetwork.request( "unlockAchievement",{achievement ={identifier = "CgkIxO2WsIoUEAIQBA "},listener = achievementChecker})
+    gameNetwork.request( "unlockAchievement",{achievement ={identifier = "high30 "},listener = achievementChecker})
 end
 if scoreSaved >= 40 then
-    gameNetwork.request( "unlockAchievement",{achievement ={identifier = "CgkIxO2WsIoUEAIQBQ"},listener = achievementChecker})
+    gameNetwork.request( "unlockAchievement",{achievement ={identifier = "high40"},listener = achievementChecker})
+end
+if scoreSaved >= 50 then
+    gameNetwork.request( "unlockAchievement",{achievement ={identifier = "high50"},listener = achievementChecker})
 end
 
 
@@ -70,115 +73,23 @@ function scene:create( event )
     native.setProperty( "androidSystemUiVisibility", "immersiveSticky" )
 
     display.setDefault( "background", 255,255,255 )
-            
 
-            
-        function retrieveRivalAlias (event)
-            if (event.type == "loadPlayers") then
-                print(event.data[1].alias)
-                --[[poopshoot = event.data[1].alias
-                rivalAliasDisplay = display.newText( poopshoot, 0, 0, native.systemFontBold, 62 )
-                rivalAliasDisplay:setFillColor(0,0,0)
-                rivalAliasDisplay.x = display.contentCenterX 
-                rivalAliasDisplay.y = display.contentCenterY - 50
-                sceneGroup:insert(rivalAliasDisplay)]]--
-            end
-        end
-
-                LoadingDisplay = display.newText( "Loading...", 0, 0, native.systemFontBold, 25  )
-                LoadingDisplay:setFillColor(0,0,0)
-                LoadingDisplay.x = display.contentCenterX + 75
-                LoadingDisplay.y = display.contentCenterY - 50
-                sceneGroup:insert(LoadingDisplay)
-
-        function requestCallback( event )
-            if ( event.type == "loadScores" ) then
-                rivalScore = event.data[1].value
-                rivalID = event.data[1].playerID
-                counters = 0
-                print(rivalID)
-                --gameNetwork.request ("loadPlayers",{playerIDs = {rivalID},listener = retrieveRivalAlias})
-            end
-        end
-
-
-        if counters == 0 then
-            print ("it is working")
-            LoadingDisplay.isVisible = false
-            rivalscoreDisplay = display.newText( rivalScore, 0, 0, native.systemFontBold, 50 )
-            rivalscoreDisplay:setFillColor(0,0,0)
-            rivalscoreDisplay.x = display.contentCenterX + 75
-            rivalscoreDisplay.y = display.contentCenterY - 50
-            sceneGroup:insert(rivalscoreDisplay)
-            counters = nil
-        end
-
-
-
-        local function scoreretriever ( event )
-            gameNetwork.request( "loadScores",
-                {
-                    leaderboard =
-                    {
-                        category = "CgkIxO2WsIoUEAIQBg",
-                        playerScope = "FriendsOnly",   -- Global, FriendsOnly
-                        timeScope = "AllTime",    -- AllTime, Week, Today
-                        range = { 1,3 },
-                        playerCentered = true
-                    },
-                    listener = requestCallback
-                }
-                )
-        end
-
-
-    if gameNetwork.request("isConnected") then 
-        timer.performWithDelay( 1, scoreretriever , 1 )
-    else
-        rivalscoreDisplayOffline = display.newText( highScore, 0, 0, native.systemFontBold, 50 )
-        rivalscoreDisplayOffline:setFillColor(0,0,0)
-        rivalscoreDisplayOffline.x = display.contentCenterX + 75
-        rivalscoreDisplayOffline.y = display.contentCenterY - 50
-        sceneGroup:insert(rivalscoreDisplayOffline)
-        LoadingDisplay.isVisible = false
-    end
 
 
     local function handleCancelButtonEvent( event )
         if ( "ended == event.phase" ) then
-            if gameNetwork.request("isConnected") then 
                 composer.removeScene( "menu", false )
                 composer.gotoScene( "menu", { effect = "slideRight", time = 333 } )
-                rivalscoreDisplay:removeSelf()
-                rivalscoreDisplay = nil
-                print( "rival score removal is functioning" )
-            else
-                composer.removeScene( "menu", false )
-                composer.gotoScene( "menu", { effect = "slideRight", time = 333 } )
-                rivalscoreDisplayOffline:removeSelf()
-                rivalscoreDisplayOffline = nil
-                print("remove function is working correctly")
-            end
         end
     end
 --
 -- Button handler to go to the selected level
 --
     local function handleLevelSelect( event )
-        if ( "ended == event.phase" ) then
-            if gameNetwork.request("isConnected") then 
+        if ( "ended == event.phase" ) then 
                 composer.removeScene( "game", false )
                 composer.gotoScene( "game", { effect = "slideRight", time = 333 } )
-                rivalscoreDisplay:removeSelf()
-                rivalscoreDisplay = nil
                 print( "rival score removal is functioning" )
-            else
-                composer.removeScene( "menu", false )
-                composer.gotoScene( "game", { effect = "slideRight", time = 333 } )
-                rivalscoreDisplayOffline:removeSelf()
-                rivalscoreDisplayOffline = nil
-                print("remove function is working correctly")
-            end
         end
     end
     --
@@ -211,19 +122,13 @@ function scene:create( event )
 
     local highscorePrompt = display.newText( "High Score", 0, 0, "RT", 16 ) --16
     highscorePrompt:setFillColor(0,0,0)
-    highscorePrompt.x = display.contentCenterX - 75
+    highscorePrompt.x = display.contentCenterX 
     highscorePrompt.y = display.contentCenterY - 90
     sceneGroup:insert(highscorePrompt)
 
-    local rivalscorePrompt = display.newText( "Rival's Score", 0, 0, "RT", 16 ) --16
-    rivalscorePrompt:setFillColor(0,0,0)
-    rivalscorePrompt.x = display.contentCenterX + 75
-    rivalscorePrompt.y = display.contentCenterY - 90
-    sceneGroup:insert(rivalscorePrompt)
-
     local highscoreDisplay = display.newText( highScore, 0, 0, native.systemFontBold, 50 ) --62
     highscoreDisplay:setFillColor(0,0,0)
-    highscoreDisplay.x = display.contentCenterX - 75
+    highscoreDisplay.x = display.contentCenterX 
     highscoreDisplay.y = display.contentCenterY - 50
     sceneGroup:insert(highscoreDisplay)
     

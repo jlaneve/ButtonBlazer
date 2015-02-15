@@ -1,6 +1,6 @@
 local composer = require("composer")
 local scene = composer.newScene()
-
+display.setStatusBar( display.HiddenStatusBar )
 native.setProperty( "androidSystemUiVisibility", "immersiveSticky" )
      local function systemEvents( event )
        print("systemEvent " .. event.type)

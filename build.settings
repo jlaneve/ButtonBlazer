@@ -17,10 +17,10 @@ settings =
 	
 	plugins = 
 	{
-		["CoronaProvider.gameNetwork.google"] =
+		["CoronaProvider.gameNetwork.apple"] =
 		{
 			publisherId = "com.coronalabs",
-			supportedPlatforms = { android = true}
+			supportedPlatforms = {iphone = true, ["iphone-sim"]=true },
 		},
 	},
 

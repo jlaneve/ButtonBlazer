@@ -3,28 +3,8 @@ local scene = composer.newScene()
 local widget = require( "widget" )
 local gameNetwork = require ("gameNetwork")
 local playerName
-gameNetwork.init("google")
+gameNetwork.init("gamecenter")
 native.setProperty( "androidSystemUiVisibility", "immersiveSticky" )
-local params
-local function loadLocalPlayerCallback( event )
-   playerName = event.data.alias
-   saveSettings()  --save player data locally using your own "saveSettings()" function
-end
-
-local function gameNetworkLoginCallback( event )
-   gameNetwork.request( "loadLocalPlayer", { listener=loadLocalPlayerCallback } )
-   return true
-end
-
-local function gpgsInitCallback( event )
-   gameNetwork.request( "login", { userInitiated=true, listener=gameNetworkLoginCallback } )
-end
-
-local function gameNetworkSetup()
-   if ( system.getInfo("platformName") == "Android" ) then
-      gameNetwork.init( "google", gpgsInitCallback )
-    end
-end
 
 
 score = -1
@@ -40,7 +20,7 @@ blip2 = audio.loadSound( "blip2.wav" )
     --local file = io.open( path, "w" )
     --gamesLaunched = file:write("*a")
 
---local gameNetwork = require("CoronaProvider.gameNetwork.google")
+--local gameNetwork = require("CoronaProvider.gameNetwork.gamecenter")
 
 native.setProperty( "androidSystemUiVisibility", "immersiveSticky" )
 
@@ -130,7 +110,7 @@ function scene:create( event )
                   print("new high score")
                           gameNetwork.request( "setHighScore",
                           {
-                             localPlayerScore = { category="CgkI2tOp9KIOEAIQAA", value=tonumber(score) }
+                             localPlayerScore = { category="Butt0nBl2z3r_HighScores", value=tonumber(score) }
                           } 
                           )
                 end 
@@ -143,7 +123,7 @@ function scene:create( event )
                        file = nil
                         gameNetwork.request( "setHighScore",
                         {
-                           localPlayerScore = { category="CgkI2tOp9KIOEAIQAA", value=tonumber(score) }
+                           localPlayerScore = { category="Butt0nBl2z3r_HighScores", value=tonumber(score) }
                         } )
         
            end
