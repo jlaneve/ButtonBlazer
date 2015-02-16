@@ -56,8 +56,8 @@ function scene:create( event )
 
   local startingButton = widget.newButton
   {
-    width = 205,
-    height = 205,
+    width = 220,
+    height = 220,
     label = "Start",
     emboss = false,
     font = "HelveticaNeue-Thin",
@@ -113,7 +113,7 @@ function scene:create( event )
 
     Runtime:addEventListener( "system", systemEvents )
    
-    local titleText = display.newText( "Button Blazer", 0, 0, "HelveticaNeue-Light", 45 ) --45
+    local titleText = display.newText( "Button Blazer", 0, 0, "HelveticaNeue-Light", 50 ) --45
     titleText:setFillColor( .01, .66, .95, 1 )
     titleText.x = display.contentCenterX
     titleText.y = display.contentCenterY - 235
