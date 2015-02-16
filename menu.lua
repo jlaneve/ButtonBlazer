@@ -2,9 +2,12 @@ local composer = require( "composer" )
 local scene = composer.newScene()
 local gameNetwork = require "gameNetwork" 
 
+gameNetwork.init("gamecenter")
 
-local loggedIntoGC = false
+--local loggedIntoGC = false
 
+
+--[[local function initCallback( event )
 local function initCallback( event )
     if ( event.type == "showSignIn" ) then
       print("sign in working")
@@ -19,7 +22,7 @@ local function onSystemEvent( event )
         return true
     end
 end
-Runtime:addEventListener( "system", onSystemEvent )
+Runtime:addEventListener( "system", onSystemEvent )]]--
 
 local widget = require("widget")
 startSound = audio.loadSound( "gameStart.ogg" )
