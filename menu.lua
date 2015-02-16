@@ -2,13 +2,6 @@ local composer = require( "composer" )
 local scene = composer.newScene()
 local gameNetwork = require "gameNetwork" 
 
-local fonts = native.getFontNames()
-print("Here comes fonts")
-for i, fontName in ipairs(fonts) do
-	print(fontName)
-end
-
-
 gameNetwork.init("gamecenter")
 
 --local loggedIntoGC = false
