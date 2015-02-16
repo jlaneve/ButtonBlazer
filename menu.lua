@@ -67,7 +67,7 @@ function scene:create( event )
     height = 205,
     label = "Start",
     emboss = false,
-    font = "RT",
+    font = "HelveticaNeue-Light",
     fontSize = 40,
     labelYOffset = -5,
     labelColor = { default={ 255, 255, 255 }, over={ 255, 255, 255, 0.4 } },

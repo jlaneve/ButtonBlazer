@@ -57,7 +57,7 @@ function scene:create( event )
 --}
 --testbutton.x = display.contentCenterX
     
-    local scoreTitle = display.newText( "Score", 0, 0, "RT", 30 ) -- displays "Score" at top
+    local scoreTitle = display.newText( "Score", 0, 0, "HelveticaNeue-Thin", 30 ) -- displays "Score" at top
     scoreTitle:setFillColor( 0,0,0 )
     scoreTitle.x = display.contentCenterX
     scoreTitle.y = -20
@@ -69,7 +69,7 @@ function scene:create( event )
     scoreLabel.y = 54
     sceneGroup:insert(scoreLabel)
 
-    local timeleftLabel = display.newText("Time left",0,0,"RT",20)
+    local timeleftLabel = display.newText("Time left",0,0,"HelveticaNeue-Thin",20)
     timeleftLabel:setFillColor( 0,0,0 )
     timeleftLabel.x = display.contentCenterX
     timeleftLabel.y = 125
