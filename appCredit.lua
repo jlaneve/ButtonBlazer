@@ -51,37 +51,37 @@ function scene:create( event )
     --
     -- Create a cancel button to give the player a chance to go back to your menu scene.
     --
-    local scorePrompt = display.newText( "Developed and Designed By", 0,0, "RT", 20 ) --20
+    local scorePrompt = display.newText( "Developed and Designed By", 0,0, "HelveticaNeue-Thin", 20 ) --20
     scorePrompt:setFillColor( 0,0,0 )
     scorePrompt.x = display.contentCenterX
     scorePrompt.y = display.contentCenterY - 70
     sceneGroup:insert(scorePrompt)
 
-    local scoreDisplay = display.newText( "Perfect Corner", 0, 0, native.systemFontBold, 45 ) --80
+    local scoreDisplay = display.newText( "Perfect Corner", 0, 0, native.systemFont, 45 ) --80
     scoreDisplay:setFillColor(0,0,0)
     scoreDisplay.x = display.contentCenterX
     scoreDisplay.y = display.contentCenterY - 35
     sceneGroup:insert(scoreDisplay)
 
-    local highscorePrompt = display.newText( "Music Licensed Under Creative Commons", 0, 0, "RT", 16 ) --16
+    local highscorePrompt = display.newText( "Music Licensed Under Creative Commons", 0, 0, "HelveticaNeue-Thin", 16 ) --16
     highscorePrompt:setFillColor(0,0,0)
     highscorePrompt.x = display.contentCenterX 
     highscorePrompt.y = display.contentCenterY  
     sceneGroup:insert(highscorePrompt)
 
-    local rivalscorePrompt = display.newText( "Stane Stane", 0, 0, native.systemFontBold, 16 ) --16
+    local rivalscorePrompt = display.newText( "Stane Stane", 0, 0, native.systemFont, 16 ) --16
     rivalscorePrompt:setFillColor(0,0,0)
     rivalscorePrompt.x = display.contentCenterX 
     rivalscorePrompt.y = display.contentCenterY + 20
     sceneGroup:insert(rivalscorePrompt)
 
-    local CCCredits = display.newText( "GreenhourGlass", 0, 0, native.systemFontBold, 16 ) --16
+    local CCCredits = display.newText( "GreenhourGlass", 0, 0, native.systemFont, 16 ) --16
     CCCredits:setFillColor(0,0,0)
     CCCredits.x = display.contentCenterX 
     CCCredits.y = display.contentCenterY + 40
     sceneGroup:insert(CCCredits)
 
-    local CCCredits2 = display.newText( "freesounds.org", 0, 0, native.systemFontBold, 16 ) --16
+    local CCCredits2 = display.newText( "freesounds.org", 0, 0, native.systemFont, 16 ) --16
     CCCredits2:setFillColor(0,0,0)
     CCCredits2.x = display.contentCenterX 
     CCCredits2.y = display.contentCenterY + 60
@@ -109,7 +109,7 @@ function scene:create( event )
         height = 100,
         label = "Back",
         labelColor = { default={ 255, 255, 255 }, over={ 255, 255, 255, 0.4 } },
-        font = "RT",
+        font = "HelveticaNeue-Thin",
         emboss = false,
         fontSize = 16,
         labelYOffset = -1,

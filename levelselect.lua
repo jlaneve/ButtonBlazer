@@ -130,7 +130,7 @@ function scene:create( event )
 
     local highscoreDisplay = display.newText( highScore, 0, 0, native.systemFont, 50 ) --62
     highscoreDisplay:setFillColor(0,0,0)
-    highscoreDisplay.x = display.contentCenterX - 3 
+    highscoreDisplay.x = display.contentCenterX - 2 
     highscoreDisplay.y = display.contentCenterY - 40
     sceneGroup:insert(highscoreDisplay)
     
