@@ -56,12 +56,12 @@ function scene:create( event )
 
   local startingButton = widget.newButton
   {
-    width = 220,
-    height = 220,
+    width = 205,
+    height = 205,
     label = "Start",
     emboss = false,
     font = "HelveticaNeue-Thin",
-    fontSize = 40,
+    fontSize = 45,
     labelYOffset = -5,
     labelColor = { default={ 255, 255, 255 }, over={ 255, 255, 255, 0.4 } },
     defaultFile = "blueButton.png",
