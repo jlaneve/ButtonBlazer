@@ -116,7 +116,7 @@ function scene:create( event )
     scorePrompt.y = display.contentCenterY - 200
     sceneGroup:insert(scorePrompt)
 
-    local scoreDisplay = display.newText( scoreSaved, 0, 0, native.systemFontBold, 95 ) --80
+    local scoreDisplay = display.newText( scoreSaved, 0, 0, native.systemFont, 95 ) --80
     scoreDisplay:setFillColor(0,0,0)
     scoreDisplay.x = display.contentCenterX - 4
     scoreDisplay.y = display.contentCenterY - 145
@@ -125,13 +125,13 @@ function scene:create( event )
     local highscorePrompt = display.newText( "High Score", 0, 0, "HelveticaNeue-Thin", 16 ) --16
     highscorePrompt:setFillColor(0,0,0)
     highscorePrompt.x = display.contentCenterX 
-    highscorePrompt.y = display.contentCenterY - 90
+    highscorePrompt.y = display.contentCenterY - 80
     sceneGroup:insert(highscorePrompt)
 
-    local highscoreDisplay = display.newText( highScore, 0, 0, native.systemFontBold, 50 ) --62
+    local highscoreDisplay = display.newText( highScore, 0, 0, native.systemFont, 50 ) --62
     highscoreDisplay:setFillColor(0,0,0)
-    highscoreDisplay.x = display.contentCenterX 
-    highscoreDisplay.y = display.contentCenterY - 50
+    highscoreDisplay.x = display.contentCenterX - 3 
+    highscoreDisplay.y = display.contentCenterY - 40
     sceneGroup:insert(highscoreDisplay)
     
     --[[function RivalLoader (event)
@@ -153,7 +153,7 @@ function scene:create( event )
     label = "Restart",
     labelColor = { default={ 255, 255, 255 }, over={ 255, 255, 255, 0.4 } },
     labelYOffset = -5,
-    font = "RT",
+    font = "HelveticaNeue-Thin",
     emboss = false,
     fontSize = 24,
     defaultFile = "blueButton.png",
@@ -170,7 +170,7 @@ function scene:create( event )
         height = 100,
         label = "Quit",
         labelColor = { default={ 255, 255, 255 }, over={ 255, 255, 255, 0.4 } },
-        font = "RT",
+        font = "HelveticaNeue-Thin",
         emboss = false,
         fontSize = 16,
         labelYOffset = -1,
