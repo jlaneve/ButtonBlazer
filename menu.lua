@@ -6,12 +6,9 @@ local gameNetwork = require "gameNetwork"
 local loggedIntoGC = false
 
 local function initCallback( event )
-	native.showAlert("initCallback called", "", { "OK" })
     if ( event.type == "showSignIn" ) then
       print("sign in working")
-	native.showAlert("Logging in...", "", { "OK" })
     elseif ( event.data ) then
-	native.showAlert("Logged in", "", { "OK" })
         loggedIntoGC = true
     end
 end
