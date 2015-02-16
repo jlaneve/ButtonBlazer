@@ -102,7 +102,7 @@ function scene:create( event )
     --rivalScore6 = "test"
 
 
-    local endText = display.newText( "Game Over", 0, 0, "HelveticaNeue-Light", 45 ) --45
+    local endText = display.newText( "Game Over", 0, 0, "HelveticaNeue-Thin", 45 ) --45
     endText:setFillColor( 0,0,0 )
     endText.x = display.contentCenterX
     endText.y = display.contentCenterY - 250
@@ -110,7 +110,7 @@ function scene:create( event )
     --
     -- Create a cancel button to give the player a chance to go back to your menu scene.
     --
-    local scorePrompt = display.newText( "Final Score", 0,0, "HelveticaNeue-Light", 20 ) --20
+    local scorePrompt = display.newText( "Final Score", 0,0, "HelveticaNeue-Thin", 20 ) --20
     scorePrompt:setFillColor( 0,0,0 )
     scorePrompt.x = display.contentCenterX
     scorePrompt.y = display.contentCenterY - 200
@@ -122,7 +122,7 @@ function scene:create( event )
     scoreDisplay.y = display.contentCenterY - 145
     sceneGroup:insert(scoreDisplay)
 
-    local highscorePrompt = display.newText( "High Score", 0, 0, "HelveticaNeue-Light", 16 ) --16
+    local highscorePrompt = display.newText( "High Score", 0, 0, "HelveticaNeue-Thin", 16 ) --16
     highscorePrompt:setFillColor(0,0,0)
     highscorePrompt.x = display.contentCenterX 
     highscorePrompt.y = display.contentCenterY - 90
