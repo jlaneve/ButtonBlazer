@@ -2,6 +2,7 @@ local composer = require("composer")
 local scene = composer.newScene()
 display.setStatusBar( display.HiddenStatusBar )
 native.setProperty( "androidSystemUiVisibility", "immersiveSticky" )
+print("I did this using github")
      local function systemEvents( event )
        print("systemEvent " .. event.type)
        if ( event.type == "applicationSuspend" ) then
