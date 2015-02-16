@@ -118,7 +118,7 @@ function scene:create( event )
 
     local scoreDisplay = display.newText( scoreSaved, 0, 0, native.systemFont, 95 ) --80
     scoreDisplay:setFillColor(0,0,0)
-    scoreDisplay.x = display.contentCenterX - 4
+    scoreDisplay.x = display.contentCenterX - 1
     scoreDisplay.y = display.contentCenterY - 145
     sceneGroup:insert(scoreDisplay)
 
