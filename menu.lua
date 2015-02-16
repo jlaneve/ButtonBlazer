@@ -69,7 +69,7 @@ function scene:create( event )
     onRelease = startGame,
   }
     startingButton.x = display.contentCenterX
-    startingButton.y = display.contentCenterY - 50
+    startingButton.y = display.contentCenterY + 10
     sceneGroup:insert(startingButton)
 
   local leaderboardsButton = widget.newButton
@@ -114,9 +114,9 @@ function scene:create( event )
     Runtime:addEventListener( "system", systemEvents )
    
     local titleText = display.newText( "Button Blazer", 0, 0, native.systemFontBold, 45 ) --45
-    titleText:setFillColor( 0,0,0 )
+    titleText:setFillColor( .01, .66, .95, 1 )
     titleText.x = display.contentCenterX
-    titleText.y = display.contentCenterY - 225
+    titleText.y = display.contentCenterY - 200
     sceneGroup:insert (titleText) 
 
 end
