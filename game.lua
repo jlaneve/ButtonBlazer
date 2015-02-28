@@ -673,6 +673,9 @@ timer1 = timer.performWithDelay(1, updateTimer, 37)
     {
         width = 100,
         height = 100,
+        label = "X",
+        labelColor = { default={ 1, 1, 1 }, over={ 0, 0, 0, 0.5 } },
+        fontSize = 55,
         defaultFile = "whiteButton.png",
         onEvent = nil,
     }
