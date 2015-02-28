@@ -157,7 +157,8 @@ function scene:create( event )
         {
         width = 100,
         height = 100,
-        font = "Back",
+        label = "Back",
+        font = "RT",
         emboss = false,
         fontSize = 16,
         labelYOffset = -1,
