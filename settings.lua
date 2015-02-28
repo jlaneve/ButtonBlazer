@@ -14,21 +14,16 @@ local widget = require( "widget")
 --
 native.setProperty( "androidSystemUiVisibility", "immersiveSticky" )
 
+colorblind = 3
 
 
-local function handleCancelButtonEvent( event )
-    if ( "ended" == event.phase ) then
-        composer.removeScene( "menu", false )
-        composer.gotoScene( "menu", { effect = "slideRight", time = 333 } )
-    end
-end
 --
 -- Button handler to go to the selected level
 --
 local function handleLevelSelect( event )
     if ( "ended" == event.phase ) then
-        composer.removeScene( "game", false )
-        composer.gotoScene( "game", { effect = "slideRight", time = 333} )
+        composer.removeScene( "menu", false )
+        composer.gotoScene( "menu", { effect = "slideRight", time = 333} )
     end
 end
 --
@@ -41,16 +36,67 @@ function scene:create( event )
     -- 
 
     display.setDefault( "background", 255,255,255 )
-       
-    local endText = display.newText( "Credits", 0, 0, "RT", 45 ) --45
+
+    colorblindtext = display.newText( "Off", 0, 0, "RT", 20 ) --45
+    colorblindtext:setFillColor( 0,0,0 )
+    colorblindtext.x = display.contentCenterX + 100
+    colorblindtext.y = display.contentCenterY - 230
+
+
+
+    function handleCancelButtonEvent( event )
+        if ( "ended" == event.phase ) then
+            local colorblindpath = system.pathForFile( "colorblind.txt", system.DocumentsDirectory )
+            local colorblindvalue = io.open(colorblindpath)
+               if colorblindvalue then
+                   print( "File is here" )
+                   local path = system.pathForFile( "colorblind.txt", system.DocumentsDirectory )
+                   local file = io.open( path , "r" )
+                   colorblind = file:read("*n")
+                   io.close( file )
+                   file = nil
+                   colorblindvalue:close( )
+                    if colorblind == 1 then
+                      local path = system.pathForFile( "colorblind.txt", system.DocumentsDirectory )
+                      local file = io.open( path , "w" )
+                      file:write (0)
+                      io.close( file )
+                      file = nil
+                      colorblindtext.text = "Off"
+                      print("colorblind was disabled")
+                    elseif colorblind == 0 then
+                      local path = system.pathForFile( "colorblind.txt", system.DocumentsDirectory )
+                      local file = io.open( path , "w" )
+                      file:write (1)
+                      io.close( file )
+                      file = nil
+                      colorblindtext.text = "On"
+                      print( "colorblind was enabled" )
+                    end 
+               else
+                   print( "file does not exist, however this script works" )
+                   print( "colorblindenabled" )
+                           local path = system.pathForFile( "colorblind.txt" , system.DocumentsDirectory )
+                           local file = io.open( path , "w" )
+                           file:write( 1 )
+                           io.close( file )
+                           file = nil
+                           colorblindtext.text = "On"
+                           --menuButton:setLabel( "On" )
+
+               end
+        end
+    end
+
+    local endText = display.newText( "Color Blind Support", 0, 0, "RT", 20 ) --45
     endText:setFillColor( 0,0,0 )
-    endText.x = display.contentCenterX
-    endText.y = display.contentCenterY - 250
+    endText.x = display.contentCenterX - 50
+    endText.y = display.contentCenterY - 230
     sceneGroup:insert (endText) 
     --
     -- Create a cancel button to give the player a chance to go back to your menu scene.
     --
-    local scorePrompt = display.newText( "Developed and Designed By:", 0,0, "RT", 20 ) --20
+    --[[local scorePrompt = display.newText( "Developed and Designed By:", 0,0, "RT", 20 ) --20
     scorePrompt:setFillColor( 0,0,0 )
     scorePrompt.x = display.contentCenterX
     scorePrompt.y = display.contentCenterY - 200
@@ -78,7 +124,7 @@ function scene:create( event )
     highscoreDisplay:setFillColor(0,0,0)
     highscoreDisplay.x = display.contentCenterX - 75
     highscoreDisplay.y = display.contentCenterY - 50
-    sceneGroup:insert(highscoreDisplay)
+    sceneGroup:insert(highscoreDisplay)]]--
     
     --[[function RivalLoader (event)
         local rivalscoreDisplay = display.newText( rivalScore7, 0, 0, native.systemFontBold, 62 )
@@ -90,12 +136,10 @@ function scene:create( event )
 
     --timer.performWithDelay( 1000, RivalLoader , 1 )
 
-    local menuButton = widget.newButton
+    local colorblindbutton = widget.newButton
         {
-        width = 100,
-        height = 20,
-        label = "Back",
-        labelColor = { default={ 255, 255, 255 }, over={ 255, 255, 255, 0.4 } },
+        width = 50,
+        height = 50,
         font = "RT",
         emboss = false,
         fontSize = 16,
@@ -104,9 +148,27 @@ function scene:create( event )
         overFile = "redButtonPressed.png",
         onRelease = handleCancelButtonEvent,
     }
-    menuButton.x = display.contentCenterX
-    menuButton.y = display.contentCenterY + 225
+    colorblindbutton.x = display.contentCenterX + 100
+    colorblindbutton.y = display.contentCenterY - 230
+    sceneGroup:insert(colorblindbutton)
+    sceneGroup:insert(colorblindtext)
+
+    local menuButton = widget.newButton
+        {
+        width = 100,
+        height = 100,
+        font = "Back",
+        emboss = false,
+        fontSize = 16,
+        labelYOffset = -1,
+        defaultFile = "redButton.png",
+        overFile = "redButtonPressed.png",
+        onRelease = handleLevelSelect,
+    }
+    menuButton.x = display.contentCenterX 
+    menuButton.y = display.contentCenterY + 220
     sceneGroup:insert(menuButton)
+
 
     local function systemEvents( event )
        print("systemEvent " .. event.type)

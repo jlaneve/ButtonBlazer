@@ -10,7 +10,12 @@ native.setProperty( "androidSystemUiVisibility", "immersiveSticky" )
 score = -1
 scoreSave = 0
 timesTapped = -1
-colorblindenable = 1
+
+local path = system.pathForFile( "colorblind.txt", system.DocumentsDirectory )
+local file = io.open( path , "r" )
+colorblindenable = file:read("*n")
+io.close( file )
+file = nil
 
 blip1 = audio.loadSound( "blip1.wav" )
 blip2 = audio.loadSound( "blip2.wav" )

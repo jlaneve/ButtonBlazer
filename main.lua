@@ -16,8 +16,8 @@ print("I did this using github")
           print( "exiting.............................." )
        elseif ( event.type == "applicationStart" ) then
           native.setProperty( "androidSystemUiVisibility", "immersiveSticky" )
-          composer.removeScene( "menu", false )
-          composer.gotoScene("menu")
+          composer.removeScene( "settings", false )
+          composer.gotoScene("settings")
        end
        return true
       end
