@@ -10,6 +10,7 @@ native.setProperty( "androidSystemUiVisibility", "immersiveSticky" )
 score = -1
 scoreSave = 0
 timesTapped = -1
+colorblindenable = 1
 
 blip1 = audio.loadSound( "blip1.wav" )
 blip2 = audio.loadSound( "blip2.wav" )
@@ -673,9 +674,6 @@ timer1 = timer.performWithDelay(1, updateTimer, 37)
     {
         width = 100,
         height = 100,
-        label = "X",
-        labelColor = { default={ 1, 1, 1 }, over={ 0, 0, 0, 0.5 } },
-        fontSize = 55,
         defaultFile = "whiteButton.png",
         onEvent = nil,
     }
@@ -730,6 +728,9 @@ timer1 = timer.performWithDelay(1, updateTimer, 37)
         width = 100,
         height = 100,
         defaultFile = "redButton.png",
+        fontSize = 55,
+        labelYOffset = -4,
+        labelColor = { default={ 0, 0, 0 }, over={ 0, 0, 0, 0.5 } },
         overFile = "redButtonPressed.png",
         onEvent = gameEndTimer
     }
@@ -745,6 +746,9 @@ timer1 = timer.performWithDelay(1, updateTimer, 37)
         height = 100,
         defaultFile = "redButton.png",
         overFile = "redButtonPressed.png",
+        fontSize = 55,
+        labelYOffset = -4,
+        labelColor = { default={ 0, 0, 0 }, over={ 0, 0, 0, 0.5 } },
         onEvent = gameEndTimer,
     }
     button2R.x = display.contentCenterX
@@ -759,6 +763,9 @@ timer1 = timer.performWithDelay(1, updateTimer, 37)
         height = 100,
         defaultFile = "redButton.png",
         overFile = "redButtonPressed.png",
+        fontSize = 55,
+        labelYOffset = -4,
+        labelColor = { default={ 0, 0, 0 }, over={ 0, 0, 0, 0.5 } },        
         onEvent = gameEndTimer,
     }
     button3R.x = 4 * display.contentCenterX/3 + 51
@@ -773,6 +780,9 @@ timer1 = timer.performWithDelay(1, updateTimer, 37)
         height = 100,
         defaultFile = "redButton.png",
         overFile = "redButtonPressed.png",
+        fontSize = 55,
+        labelYOffset = -4,
+        labelColor = { default={ 0, 0, 0 }, over={ 0, 0, 0, 0.5 } },
         onEvent = gameEndTimer
     }
     button4R.x = display.contentCenterX/3 + 2
@@ -788,6 +798,9 @@ timer1 = timer.performWithDelay(1, updateTimer, 37)
         height = 100,
         defaultFile = "redButton.png",
         overFile = "redButtonPressed.png",
+        fontSize = 55,
+        labelYOffset = -4,
+        labelColor = { default={ 0, 0, 0 }, over={ 0, 0, 0, 0.5 } },
         onEvent = gameEndTimer,
     }
     button5R.x = display.contentCenterX
@@ -803,6 +816,9 @@ timer1 = timer.performWithDelay(1, updateTimer, 37)
         height = 100,
         defaultFile = "redButton.png",
         overFile = "redButtonPressed.png",
+        fontSize = 55,
+        labelYOffset = -4,
+        labelColor = { default={ 0, 0, 0 }, over={ 0, 0, 0, 0.5 } },
         onEvent = gameEndTimer,
     }
     button6R.x = 4 * display.contentCenterX/3 + 51
@@ -817,6 +833,9 @@ timer1 = timer.performWithDelay(1, updateTimer, 37)
         height = 100,
         defaultFile = "redButton.png",
         overFile = "redButtonPressed.png",
+        fontSize = 55,
+        labelYOffset = -4,
+        labelColor = { default={ 0, 0, 0 }, over={ 0, 0, 0, 0.5 } },
         onEvent = gameEndTimer
     }
     button7R.x = display.contentCenterX/3 + 2
@@ -832,6 +851,9 @@ timer1 = timer.performWithDelay(1, updateTimer, 37)
         height = 100,
         defaultFile = "redButton.png",
         overFile = "redButtonPressed.png",
+        fontSize = 55,
+        labelYOffset = -4,
+        labelColor = { default={ 0, 0, 0 }, over={ 0, 0, 0, 0.5 } },
         onEvent = gameEndTimer,
     }
     button8R.x = display.contentCenterX
@@ -846,6 +868,9 @@ timer1 = timer.performWithDelay(1, updateTimer, 37)
         height = 100,
         defaultFile = "redButton.png",
         overFile = "redButtonPressed.png",
+        fontSize = 55,
+        labelYOffset = -4,
+        labelColor = { default={ 0, 0, 0 }, over={ 0, 0, 0, 0.5 } },
         onEvent = gameEndTimer,
     }
     button9R.x = 4 * display.contentCenterX/3 + 51
@@ -869,6 +894,9 @@ timer1 = timer.performWithDelay(1, updateTimer, 37)
         height = 100,
         defaultFile = "blueButton.png",
         overFile = "blueButtonPressed.png",
+        fontSize = 55,
+        labelYOffset = -4,
+        labelColor = { default={ 1, 1, 1 }, over={ 0, 0, 0, 0.5 } },
         onRelease = newBlue,
     }
     button1B.x = display.contentCenterX/3 + 2
@@ -884,6 +912,9 @@ timer1 = timer.performWithDelay(1, updateTimer, 37)
         height = 100,
         defaultFile = "blueButton.png",
         overFile = "blueButtonPressed.png",
+        fontSize = 55,
+        labelYOffset = -4,
+        labelColor = { default={ 1, 1, 1 }, over={ 0, 0, 0, 0.5 } },
         onRelease = newBlue,
     }
     button2B.x = display.contentCenterX
@@ -899,6 +930,9 @@ timer1 = timer.performWithDelay(1, updateTimer, 37)
         height = 100,
         defaultFile = "blueButton.png",
         overFile = "blueButtonPressed.png",
+        fontSize = 55,
+        labelYOffset = -4,
+        labelColor = { default={ 1, 1, 1 }, over={ 0, 0, 0, 0.5 } },
         onRelease = newBlue,
     }
     button3B.x = 4 * display.contentCenterX/3 + 51
@@ -914,6 +948,9 @@ timer1 = timer.performWithDelay(1, updateTimer, 37)
         height = 100,
         defaultFile = "blueButton.png",
         overFile = "blueButtonPressed.png",
+        fontSize = 55,
+        labelYOffset = -4,
+        labelColor = { default={ 1, 1, 1 }, over={ 0, 0, 0, 0.5 } },
         onRelease = newBlue,
     }
     button4B.x = display.contentCenterX/3 + 2
@@ -929,6 +966,9 @@ timer1 = timer.performWithDelay(1, updateTimer, 37)
         height = 100,
         defaultFile = "blueButton.png",
         overFile = "blueButtonPressed.png",
+        fontSize = 55,
+        labelYOffset = -4,
+        labelColor = { default={ 1, 1, 1 }, over={ 0, 0, 0, 0.5 } },
         onRelease = newBlue,
     }
     button5B.x = display.contentCenterX
@@ -944,6 +984,9 @@ timer1 = timer.performWithDelay(1, updateTimer, 37)
         height = 100,
         defaultFile = "blueButton.png",
         overFile = "blueButtonPressed.png",
+        fontSize = 55,
+        labelYOffset = -4,
+        labelColor = { default={ 1, 1, 1 }, over={ 0, 0, 0, 0.5 } },
         onRelease = newBlue,
     }
     button6B.x = 4 * display.contentCenterX/3 + 51
@@ -959,6 +1002,9 @@ timer1 = timer.performWithDelay(1, updateTimer, 37)
         height = 100,
         defaultFile = "blueButton.png",
         overFile = "blueButtonPressed.png",
+        fontSize = 55,
+        labelYOffset = -4,
+        labelColor = { default={ 1, 1, 1 }, over={ 0, 0, 0, 0.5 } },
         onRelease = newBlue,
     }
     button7B.x = display.contentCenterX/3 + 2
@@ -974,6 +1020,9 @@ timer1 = timer.performWithDelay(1, updateTimer, 37)
         height = 100,
         defaultFile = "blueButton.png",
         overFile = "blueButtonPressed.png",
+        fontSize = 55,
+        labelYOffset = -4,
+        labelColor = { default={ 1, 1, 1 }, over={ 0, 0, 0, 0.5 } },
         onRelease = newBlue,
     }
     button8B.x = display.contentCenterX
@@ -989,6 +1038,9 @@ timer1 = timer.performWithDelay(1, updateTimer, 37)
         height = 100,
         defaultFile = "blueButton.png",
         overFile = "blueButtonPressed.png",
+        fontSize = 55,
+        labelYOffset = -4,
+        labelColor = { default={ 1, 1, 1 }, over={ 0, 0, 0, 0.5 } },
         onRelease = newBlue,
     }
     button9B.x = 4 * display.contentCenterX/3 + 51
@@ -1001,6 +1053,31 @@ timer1 = timer.performWithDelay(1, updateTimer, 37)
         -- crashes out if there isn't a display object in the view.
     --
     --
+
+    if colorblindenable == 1 then
+      button1B:setLabel("O")
+      button2B:setLabel("O")
+      button3B:setLabel("O")
+      button4B:setLabel("O")
+      button5B:setLabel("O")
+      button6B:setLabel("O")
+      button7B:setLabel("O")
+      button8B:setLabel("O")
+      button9B:setLabel("O")
+      button1R:setLabel("X")
+      button2R:setLabel("X")
+      button3R:setLabel("X")
+      button4R:setLabel("X")
+      button5R:setLabel("X")
+      button6R:setLabel("X")
+      button7R:setLabel("X")
+      button8R:setLabel("X")
+      button9R:setLabel("X")
+    else
+    end
+      
+
+
     local function systemEvents( event )
        print("systemEvent " .. event.type)
        if ( event.type == "applicationSuspend" ) then
