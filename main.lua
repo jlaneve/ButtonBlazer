@@ -14,6 +14,10 @@ print("I did this using github")
           composer.gotoScene( "menu", { effect = "slideRight", time = 333} )
        elseif ( event.type == "applicationExit" ) then
           print( "exiting.............................." )
+        elseif ( event.type == "applicationStart" ) and true then
+           native.setProperty( "androidSystemUiVisibility", "immersiveSticky" )
+          composer.removeScene( "firstLaunch", false )
+          composer.gotoScene("firstLaunch")
        elseif ( event.type == "applicationStart" ) then
           native.setProperty( "androidSystemUiVisibility", "immersiveSticky" )
           composer.removeScene( "settings", false )

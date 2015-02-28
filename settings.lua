@@ -142,6 +142,7 @@ function scene:create( event )
         height = 50,
         font = "RT",
         emboss = false,
+        color = black,
         fontSize = 16,
         labelYOffset = -1,
         defaultFile = "redButton.png",
