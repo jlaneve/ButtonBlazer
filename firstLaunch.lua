@@ -48,7 +48,7 @@ function scene:create( event )
 end
 
 function menu(event)
-    composer.gotoScene("menu") 
+    composer.gotoScene("settings") 
 end
 
 function changeImg( event ) 

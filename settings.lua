@@ -22,6 +22,10 @@ colorblind = 3
 --
 local function handleLevelSelect( event )
     if ( "ended" == event.phase ) then
+        local path = system.pathForFile( "colorblind.txt", system.DocumentsDirectory )
+        local file = io.open(path)
+        file:write(0)
+        file:close()
         composer.removeScene( "menu", false )
         composer.gotoScene( "menu", { effect = "slideRight", time = 333} )
     end
