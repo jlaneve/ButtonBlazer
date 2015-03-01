@@ -37,13 +37,13 @@ function scene:create( event )
 
     display.setDefault( "background", 255,255,255 )
 
-    colorblindtext = display.newText( "Off", 0, 0, "RT", 20 ) --45
+    colorblindtext = display.newText( "Off", 0, 0, "HelveticaNeue-Thin", 20 ) --45
     colorblindtext:setFillColor( 1,1,1)
     colorblindtext.x = display.contentCenterX + 130
     colorblindtext.y = display.contentCenterY - 180
     sceneGroup:insert(colorblindtext)
 
-    settingsLabel = display.newText( "Settings", 0, 0, "RT", 50 ) --45
+    settingsLabel = display.newText( "Settings", 0, 0, "HelveticaNeue-Thin", 50 ) --45
     settingsLabel:setFillColor( .01, .66, .95, 1 )
     settingsLabel.x = display.contentCenterX 
     settingsLabel.y = display.contentCenterY - 250
