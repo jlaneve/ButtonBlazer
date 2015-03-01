@@ -40,11 +40,11 @@ function scene:create( event )
     colorblindtext = display.newText( "Off", 0, 0, "RT", 20 ) --45
     colorblindtext:setFillColor( 1,1,1)
     colorblindtext.x = display.contentCenterX + 130
-    colorblindtext.y = display.contentCenterY - 200
+    colorblindtext.y = display.contentCenterY - 180
     sceneGroup:insert(colorblindtext)
 
     settingsLabel = display.newText( "Settings", 0, 0, "RT", 50 ) --45
-    settingsLabel:setFillColor( 0,0,0)
+    settingsLabel:setFillColor( .01, .66, .95, 1 )
     settingsLabel.x = display.contentCenterX 
     settingsLabel.y = display.contentCenterY - 250
     sceneGroup:insert(settingsLabel)
@@ -109,13 +109,13 @@ function scene:create( event )
     local endText = display.newText( "Color Blind Support", 0, 0, "HelveticaNeue-Thin", 20 ) --45
     endText:setFillColor( 0,0,0 )
     endText.x = display.contentCenterX - 63
-    endText.y = display.contentCenterY - 200
+    endText.y = display.contentCenterY - 180
     sceneGroup:insert (endText)
 
     colorblinddescrp = display.newText( "Places an O and X for blue and red buttons respectively", 0, 0, "HelveticaNeue-Thin", 10 ) --45
     colorblinddescrp:setFillColor( 0.1,0.1,0.1)
     colorblinddescrp.x = display.contentCenterX - 25
-    colorblinddescrp.y = display.contentCenterY - 185
+    colorblinddescrp.y = display.contentCenterY - 165
     sceneGroup:insert(colorblinddescrp) 
     --
     -- Create a cancel button to give the player a chance to go back to your menu scene.
@@ -123,7 +123,7 @@ function scene:create( event )
     --[[local scorePrompt = display.newText( "Developed and Designed By:", 0,0, "RT", 20 ) --20
     scorePrompt:setFillColor( 0,0,0 )
     scorePrompt.x = display.contentCenterX
-    scorePrompt.y = display.contentCenterY - 200
+    scorePrompt.y = display.contentCenterY - 180
     sceneGroup:insert(scorePrompt)
 
     local scoreDisplay = display.newText( "Samarth Desai", 0, 0, native.systemFontBold, 95 ) --80
@@ -174,7 +174,7 @@ function scene:create( event )
         onRelease = handleCancelButtonEvent,
     }
     colorblindbutton.x = display.contentCenterX + 130
-    colorblindbutton.y = display.contentCenterY - 200
+    colorblindbutton.y = display.contentCenterY - 180
     sceneGroup:insert(colorblindbutton)
     sceneGroup:insert(colorblindtext)
 
