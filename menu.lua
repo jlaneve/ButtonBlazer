@@ -37,7 +37,7 @@ end
 function showHelp ( event )
   if ("event.phase == ended") then
     audio.play( startSound )
-    native.showAlert( "How to Play", "Tap the blue squares to gain time and points. Avoid the red!")
+    native.showAlert( "How to Play", "Tap the blue squares to gain time and points. Avoid the red!", {"Ok" })
   end
 end
 

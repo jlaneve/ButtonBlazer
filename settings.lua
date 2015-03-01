@@ -176,7 +176,13 @@ function scene:create( event )
     colorblindbutton.x = display.contentCenterX + 130
     colorblindbutton.y = display.contentCenterY - 180
     sceneGroup:insert(colorblindbutton)
+    
+    
+    
+    
+    
     sceneGroup:insert(colorblindtext)
+    
 
     local menuButton = widget.newButton
         {
@@ -209,7 +215,14 @@ function scene:create( event )
             end]]--
 
 
-
+    
+        
+        
+        
+        
+    end
+    
+    
     local function systemEvents( event )
        print("systemEvent " .. event.type)
        if ( event.type == "applicationSuspend" ) then
@@ -226,8 +239,6 @@ function scene:create( event )
     end
 
     Runtime:addEventListener( "system", systemEvents )
-
-end
 --
 function scene:show( event )
     local sceneGroup = self.view
