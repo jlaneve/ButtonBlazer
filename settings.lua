@@ -106,13 +106,13 @@ function scene:create( event )
         end
     end
 
-    local endText = display.newText( "Color Blind Support", 0, 0, "RT", 20 ) --45
+    local endText = display.newText( "Color Blind Support", 0, 0, "HelveticaNeue-Thin", 20 ) --45
     endText:setFillColor( 0,0,0 )
     endText.x = display.contentCenterX - 63
     endText.y = display.contentCenterY - 200
     sceneGroup:insert (endText)
 
-    colorblinddescrp = display.newText( "Places an O and X for blue and red buttons respectively", 0, 0, "RT", 10 ) --45
+    colorblinddescrp = display.newText( "Places an O and X for blue and red buttons respectively", 0, 0, "HelveticaNeue-Thin", 10 ) --45
     colorblinddescrp:setFillColor( 0.1,0.1,0.1)
     colorblinddescrp.x = display.contentCenterX - 25
     colorblinddescrp.y = display.contentCenterY - 185
@@ -164,7 +164,7 @@ function scene:create( event )
         {
         width = 50,
         height = 50,
-        font = "RT",
+        font = "HelveticaNeue-Thin",
         emboss = false,
         labelColor = black,
         fontSize = 16,
@@ -183,7 +183,7 @@ function scene:create( event )
         width = 100,
         height = 100,
         label = "Back",
-        font = "RT",
+        font = "HelveticaNeue-Thin",
         emboss = false,
         labelColor = { default={ 1, 1, 1 } },
         fontSize = 16,
