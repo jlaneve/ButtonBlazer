@@ -15,13 +15,13 @@ print("I did this using github")
        elseif ( event.type == "applicationExit" ) then
           print( "exiting.............................." )
         elseif ( event.type == "applicationStart" ) and not io.open(system.pathForFile( "highscore.txt", system.DocumentsDirectory )) == nil then
-           native.setProperty( "androidSystemUiVisibility", "immersiveSticky" )
+          native.setProperty( "androidSystemUiVisibility", "immersiveSticky" )
           composer.removeScene( "firstLaunch", false )
           composer.gotoScene("firstLaunch")
        elseif ( event.type == "applicationStart" ) then
           native.setProperty( "androidSystemUiVisibility", "immersiveSticky" )
-          composer.removeScene( "settings", false )
-          composer.gotoScene("settings")
+          composer.removeScene( "menu", false )
+          composer.gotoScene("menu")
        end
        return true
       end

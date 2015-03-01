@@ -41,6 +41,15 @@ local function gotoCredits( event )
   end
 end
 
+local function gotoSettings( event )
+  if ("event.phase == ended") then
+    audio.play( startSound )
+    composer.removeScene( "menu", false )
+    composer.gotoScene( "settings" )
+  end
+end
+
+
 local function showLeaderboards( event )
   if ("event.phase == ended") then
      gameNetwork.show("leaderboards")
@@ -79,7 +88,7 @@ function scene:create( event )
     defaultFile = "leaderboardsIcon.png",
     onEvent = showLeaderboards,
   }
-  leaderboardsButton.x = display.contentCenterX - 50
+  leaderboardsButton.x = display.contentCenterX 
   leaderboardsButton.y = display.contentCenterY + 220
   sceneGroup:insert(leaderboardsButton)
 
@@ -90,9 +99,20 @@ function scene:create( event )
     defaultFile = "creditsIcon.png",
     onEvent = gotoCredits,
   }
-  creditsButton.x = display.contentCenterX + 50
+  creditsButton.x = display.contentCenterX + 90
   creditsButton.y = display.contentCenterY + 220
   sceneGroup:insert(creditsButton)
+
+  local settingsButton = widget.newButton
+  {
+    width = 75,
+    height = 75,
+    defaultFile = "settingsIcon.png",
+    onEvent = gotoSettings,
+  }
+  settingsButton.x = display.contentCenterX - 90
+  settingsButton.y = display.contentCenterY + 220
+  sceneGroup:insert(settingsButton)
    -- Initialize the scene here.
    -- Example: add display objects to "sceneGroup", add touch listeners, etc.
 

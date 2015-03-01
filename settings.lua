@@ -22,12 +22,8 @@ colorblind = 3
 --
 local function handleLevelSelect( event )
     if ( "ended" == event.phase ) then
-        local path = system.pathForFile( "colorblind.txt", system.DocumentsDirectory )
-        local file = io.open(path)
-        file:write(0)
-        file:close()
         composer.removeScene( "menu", false )
-        composer.gotoScene( "menu", { effect = "slideRight", time = 333} )
+        composer.gotoScene( "menu")
     end
 end
 --
@@ -43,8 +39,15 @@ function scene:create( event )
 
     colorblindtext = display.newText( "Off", 0, 0, "RT", 20 ) --45
     colorblindtext:setFillColor( 1,1,1)
-    colorblindtext.x = display.contentCenterX + 100
-    colorblindtext.y = display.contentCenterY - 230
+    colorblindtext.x = display.contentCenterX + 130
+    colorblindtext.y = display.contentCenterY - 200
+    sceneGroup:insert(colorblindtext)
+
+    settingsLabel = display.newText( "Settings", 0, 0, "RT", 50 ) --45
+    settingsLabel:setFillColor( 0,0,0)
+    settingsLabel.x = display.contentCenterX 
+    settingsLabel.y = display.contentCenterY - 250
+    sceneGroup:insert(settingsLabel)
 
 
     --[[local colorblindcheckpath = system.pathForFile( "colorblind.txt" , system.DocumentsDirectory )
@@ -105,9 +108,15 @@ function scene:create( event )
 
     local endText = display.newText( "Color Blind Support", 0, 0, "RT", 20 ) --45
     endText:setFillColor( 0,0,0 )
-    endText.x = display.contentCenterX - 50
-    endText.y = display.contentCenterY - 230
-    sceneGroup:insert (endText) 
+    endText.x = display.contentCenterX - 63
+    endText.y = display.contentCenterY - 200
+    sceneGroup:insert (endText)
+
+    colorblinddescrp = display.newText( "Places an O and X for blue and red buttons respectively", 0, 0, "RT", 10 ) --45
+    colorblinddescrp:setFillColor( 0.1,0.1,0.1)
+    colorblinddescrp.x = display.contentCenterX - 25
+    colorblinddescrp.y = display.contentCenterY - 185
+    sceneGroup:insert(colorblinddescrp) 
     --
     -- Create a cancel button to give the player a chance to go back to your menu scene.
     --
@@ -164,8 +173,8 @@ function scene:create( event )
         overFile = "redButtonPressed.png",
         onRelease = handleCancelButtonEvent,
     }
-    colorblindbutton.x = display.contentCenterX + 100
-    colorblindbutton.y = display.contentCenterY - 230
+    colorblindbutton.x = display.contentCenterX + 130
+    colorblindbutton.y = display.contentCenterY - 200
     sceneGroup:insert(colorblindbutton)
     sceneGroup:insert(colorblindtext)
 
