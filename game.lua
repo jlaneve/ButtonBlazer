@@ -81,7 +81,7 @@ function scene:create( event )
     timeleftLabel.y = 125
     sceneGroup:insert(timeleftLabel)
      -- time amount
-    local timeDisplay = display.newText("Press Blue to Start",0,0,native.systemFont,40) -- displays time
+    timeDisplay = display.newText("Press Blue to Start",0,0,native.systemFont,40) -- displays time
     timeDisplay:setFillColor( 0,0,0 )
     timeDisplay.x = display.contentCenterX
     timeDisplay.y = 166

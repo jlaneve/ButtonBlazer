@@ -42,11 +42,23 @@ function scene:create( event )
     display.setDefault( "background", 255,255,255 )
 
     colorblindtext = display.newText( "Off", 0, 0, "RT", 20 ) --45
-    colorblindtext:setFillColor( 0,0,0 )
+    colorblindtext:setFillColor( 1,1,1)
     colorblindtext.x = display.contentCenterX + 100
     colorblindtext.y = display.contentCenterY - 230
 
 
+    --[[local colorblindcheckpath = system.pathForFile( "colorblind.txt" , system.DocumentsDirectory )
+    local colorblindcheckvalue = io.open(colorblindcheckpath)
+      if colorblindcheckvalue then
+        if colorblind == 1 then
+          colorblindtext.text = "On"
+          print( "chanced" )
+        elseif colorblind == 0 then
+          colorblindtext.text = "Off"
+          print( "changed" )
+        end
+      end               
+    colorblindcheckvalue:close( )]]--
 
     function handleCancelButtonEvent( event )
         if ( "ended" == event.phase ) then
@@ -87,7 +99,6 @@ function scene:create( event )
                            file = nil
                            colorblindtext.text = "On"
                            --menuButton:setLabel( "On" )
-
                end
         end
     end
@@ -165,7 +176,7 @@ function scene:create( event )
         label = "Back",
         font = "RT",
         emboss = false,
-        labelColor = { default={ 0, 0, 0 } },
+        labelColor = { default={ 1, 1, 1 } },
         fontSize = 16,
         labelYOffset = -1,
         defaultFile = "redButton.png",
@@ -175,6 +186,19 @@ function scene:create( event )
     menuButton.x = display.contentCenterX 
     menuButton.y = display.contentCenterY + 220
     sceneGroup:insert(menuButton)
+
+            --[[local colorblindcheck2 = system.pathForFile( "colorblind.txt", system.DocumentsDirectory )
+            local colorblindtextcheck3 = io.open(colorblindcheck2)
+            if colorblindtextcheck3 then
+                local path = system.pathForFile( "colorblind.txt", system.DocumentsDirectory )
+                local file = io.open( path , "r" )
+                local colorblind = file:read("*n")
+                io.close( file )]]--
+
+            --[[else
+              colorblindtext.text = "Off"
+            end]]--
+
 
 
     local function systemEvents( event )
