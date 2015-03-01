@@ -26,10 +26,18 @@ Runtime:addEventListener( "system", onSystemEvent )]]--
 
 local widget = require("widget")
 startSound = audio.loadSound( "gameStart.ogg" )
+
 function startGame ( event )
   if ("event.phase == ended") then
     audio.play( startSound )
     composer.gotoScene("game", {effect = "slideLeft", time = 333} )
+  end
+end
+
+function showHelp ( event )
+  if ("event.phase == ended") then
+    audio.play( startSound )
+    native.showAlert( "How to Play", "Tap the blue squares to gain time and points. Avoid the red!")
   end
 end
 
@@ -80,6 +88,22 @@ function scene:create( event )
     startingButton.x = display.contentCenterX
     startingButton.y = display.contentCenterY - 25
     sceneGroup:insert(startingButton)
+
+  local helpButton = widget.newButton
+  {
+    width = 30,
+    height = 30,
+    emboss = false,
+    font = "HelveticaNeue-Thin",
+    fontSize = 45,
+    labelYOffset = -5,
+    labelColor = { default={ 255, 255, 255 }, over={ 255, 255, 255, 0.4 } },
+    defaultFile = "helpIcon.png",
+    onRelease = showHelp,
+  }
+    helpButton.x = display.contentCenterX - 145
+    helpButton.y = display.contentCenterY + 260
+    sceneGroup:insert(helpButton)
 
   local leaderboardsButton = widget.newButton
   {
