@@ -22,7 +22,7 @@ if file then
 else
   colorblindenable = 0
 end
-file:close()
+--file:close()
 
 blip1 = audio.loadSound( "blip1.wav" )
 blip2 = audio.loadSound( "blip2.wav" )

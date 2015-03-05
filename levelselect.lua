@@ -52,7 +52,7 @@ if scoreSaved >= 20 then
     gameNetwork.request( "unlockAchievement",{achievement ={identifier = "high20"},listener = achievementChecker})
 end
 if scoreSaved >= 30 then
-    gameNetwork.request( "unlockAchievement",{achievement ={identifier = "high30 "},listener = achievementChecker})
+    gameNetwork.request( "unlockAchievement",{achievement ={identifier = "high30"},listener = achievementChecker})
 end
 if scoreSaved >= 40 then
     gameNetwork.request( "unlockAchievement",{achievement ={identifier = "high40"},listener = achievementChecker})
@@ -102,10 +102,10 @@ function scene:create( event )
     --rivalScore6 = "test"
 
 
-    local endText = display.newText( "Game Over", 0, 0, "HelveticaNeue-Thin", 45 ) --45
+    local endText = display.newText( "Game Over", 0, 0, "HelveticaNeue-Thin", 55 ) --45
     endText:setFillColor( 0,0,0 )
     endText.x = display.contentCenterX
-    endText.y = display.contentCenterY - 250
+    endText.y = display.contentCenterY - 245
     sceneGroup:insert (endText) 
     --
     -- Create a cancel button to give the player a chance to go back to your menu scene.

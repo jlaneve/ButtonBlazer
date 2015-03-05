@@ -106,15 +106,15 @@ function scene:create( event )
         end
     end
 
-    local endText = display.newText( "Color Blind Support", 0, 0, "HelveticaNeue-Thin", 20 ) --45
+    local endText = display.newText( "Color Blind Support", 0, 0, "HelveticaNeue-Thin", 27 ) --45
     endText:setFillColor( 0,0,0 )
-    endText.x = display.contentCenterX - 63
-    endText.y = display.contentCenterY - 180
+    endText.x = display.contentCenterX - 40
+    endText.y = display.contentCenterY - 187
     sceneGroup:insert (endText)
 
     colorblinddescrp = display.newText( "Places an O and X for blue and red buttons respectively", 0, 0, "HelveticaNeue-Thin", 10 ) --45
     colorblinddescrp:setFillColor( 0.1,0.1,0.1)
-    colorblinddescrp.x = display.contentCenterX - 25
+    colorblinddescrp.x = display.contentCenterX - 32
     colorblinddescrp.y = display.contentCenterY - 165
     sceneGroup:insert(colorblinddescrp) 
     --
@@ -168,7 +168,7 @@ function scene:create( event )
         emboss = false,
         labelColor = black,
         fontSize = 16,
-        labelYOffset = -1,
+        labelYOffset = -2,
         defaultFile = "redButton.png",
         overFile = "redButtonPressed.png",
         onRelease = handleCancelButtonEvent,
