@@ -40,13 +40,13 @@ function scene:create( event )
     colorblindtext = display.newText( "Off", 0, 0, "HelveticaNeue-Thin", 20 ) --45
     colorblindtext:setFillColor( 1,1,1)
     colorblindtext.x = display.contentCenterX + 130
-    colorblindtext.y = display.contentCenterY - 180
+    colorblindtext.y = display.contentCenterY - 166
     sceneGroup:insert(colorblindtext)
 
     settingsLabel = display.newText( "Settings", 0, 0, "HelveticaNeue-Thin", 50 ) --45
     settingsLabel:setFillColor( .01, .66, .95, 1 )
     settingsLabel.x = display.contentCenterX 
-    settingsLabel.y = display.contentCenterY - 250
+    settingsLabel.y = display.contentCenterY - 235
     sceneGroup:insert(settingsLabel)
 
 
@@ -109,13 +109,13 @@ function scene:create( event )
     local endText = display.newText( "Color Blind Support", 0, 0, "HelveticaNeue-Thin", 27 ) --45
     endText:setFillColor( 0,0,0 )
     endText.x = display.contentCenterX - 40
-    endText.y = display.contentCenterY - 187
+    endText.y = display.contentCenterY - 172
     sceneGroup:insert (endText)
 
     colorblinddescrp = display.newText( "Places an O and X for blue and red buttons respectively", 0, 0, "HelveticaNeue-Thin", 10 ) --45
     colorblinddescrp:setFillColor( 0.1,0.1,0.1)
     colorblinddescrp.x = display.contentCenterX - 32
-    colorblinddescrp.y = display.contentCenterY - 165
+    colorblinddescrp.y = display.contentCenterY - 150
     sceneGroup:insert(colorblinddescrp) 
     --
     -- Create a cancel button to give the player a chance to go back to your menu scene.
@@ -168,13 +168,13 @@ function scene:create( event )
         emboss = false,
         labelColor = black,
         fontSize = 16,
-        labelYOffset = -2,
+        labelYOffset = -4,
         defaultFile = "redButton.png",
         overFile = "redButtonPressed.png",
         onRelease = handleCancelButtonEvent,
     }
     colorblindbutton.x = display.contentCenterX + 130
-    colorblindbutton.y = display.contentCenterY - 180
+    colorblindbutton.y = display.contentCenterY - 165
     sceneGroup:insert(colorblindbutton)
     
     
