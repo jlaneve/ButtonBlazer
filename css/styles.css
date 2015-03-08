@@ -198,3 +198,10 @@ h2 {
 #credits {
 	float:right;
 	}
+.icon {
+    margin-top: 10px;
+}
+
+#phones {
+    margin-left: -100px;
+}

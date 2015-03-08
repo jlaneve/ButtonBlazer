@@ -19,6 +19,7 @@
 
 .visible-desktop {
 	display: inherit!important;
+    margin-left: 20px;
 	}
 	
 #version {
@@ -60,6 +61,7 @@
 #phones {
 	text-align: center;
 	margin-top: 20px;
+    margin-left: -20px;
 	}
 	
 #description {
