@@ -180,6 +180,9 @@ h2 {
 	
 #contact-info {
 	padding-bottom:20px;
+    float: left;
+    overflow: hidden;
+    display: inline-block;
 	}
 	
 	
@@ -209,3 +212,16 @@ h2 {
 }
 
 
+
+.reviews {
+    overflow: hidden;
+    display: inline-block;
+}
+
+#reviews {
+    margin-left: 100px;
+}
+
+.name {
+    margin-top: -10px;
+}
